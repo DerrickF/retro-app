@@ -1,0 +1,7 @@
+<canvas #canvas></canvas>
+
+<ul *ngFor="let sticky of stickies | async">
+  <li>{{sticky.text}}</li>
+</ul>
+
+<button mat-raised-button color="warn" (click)="clear()">Clear</button>

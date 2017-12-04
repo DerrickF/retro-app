@@ -1,7 +1,11 @@
-<canvas #canvas></canvas>
+<div class="container">
 
-<ul *ngFor="let sticky of stickies | async">
-  <li>{{sticky.text}}</li>
-</ul>
+  <canvas #canvas></canvas>
 
-<button mat-raised-button color="warn" (click)="clear()">Clear</button>
+  <ul *ngFor="let sticky of stickies | async">
+    <li>{{sticky.text}}</li>
+  </ul>
+
+  <button mat-raised-button color="warn" (click)="clear()">Clear</button>
+  <button mat-raised-button (click)="openDialog()">Create New Sticky</button>
+</div>

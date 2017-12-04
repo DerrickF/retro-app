@@ -1,0 +1,11 @@
+<div class="container">
+    <form>
+        <mat-form-field>
+            <mat-select placeholder="Catagory">
+                <mat-option *ngFor="let catagory of catagories" [value]="catagory.value">
+                    {{ catagory.text }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>

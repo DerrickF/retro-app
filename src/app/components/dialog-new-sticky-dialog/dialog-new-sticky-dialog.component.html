@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form fxLayout="column" fxLayoutAlign="center none">
         <mat-form-field>
             <mat-select placeholder="Catagory">
                 <mat-option *ngFor="let catagory of catagories" [value]="catagory.value">
@@ -7,5 +7,12 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
+        <mat-form-field>
+            <textarea matInput placeholder="Some Text"></textarea>
+        </mat-form-field>
+        <button mat-raised-button (click)="openDialog()" color="primary">
+            Save
+            <i class="material-icons">save</i>
+        </button>
     </form>
 </div>

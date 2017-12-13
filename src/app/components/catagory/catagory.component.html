@@ -1,0 +1,20 @@
+<mat-card class="catagory">
+  <mat-toolbar class="catagory-toolbar" color="primary" fxLayout="row">
+    <div fxFlex="95">{{catagory.title}}</div>
+    <button mat-mini-fab (click)="openDialog()" color="warn">
+      <i class="material-icons">playlist_add</i>
+    </button>
+  </mat-toolbar>
+  <mat-card class="stickie" *ngFor="let sticky of catagory.stickies">
+    <mat-card-header>
+      <mat-card-title>{{sticky.text}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-icon-button color="warn">
+        <i class="material-icons">delete</i>
+      </button>
+      <button mat-icon-button color="primary">
+        <i class="material-icons">thumb_up</i> {{sticky.likes}}</button>
+    </mat-card-actions>
+  </mat-card>
+</mat-card>

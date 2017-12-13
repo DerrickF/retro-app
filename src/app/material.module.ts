@@ -11,10 +11,12 @@ import {
     MatGridList,
     MatListModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule
 } from '@angular/material'
 
 import { FormsModule } from '@angular/forms';
+import { Browser } from 'selenium-webdriver';
 
 @NgModule({
     imports: [
@@ -23,8 +25,10 @@ import { FormsModule } from '@angular/forms';
     ],
     declarations: [],
     exports: [
+        BrowserAnimationsModule,
         FlexLayoutModule,
         MatButtonModule,
+        MatToolbarModule,
         MatDialogModule,
         MatSelectModule,
         MatOptionModule,

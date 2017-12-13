@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogNewStickyDialogComponent } from './dialog-new-sticky-dialog.component';
+import { NewStickyDialogComponent } from './new-sticky-dialog.component';
 
 describe('DialogNewStickyDialogComponent', () => {
-  let component: DialogNewStickyDialogComponent;
-  let fixture: ComponentFixture<DialogNewStickyDialogComponent>;
+  let component: NewStickyDialogComponent;
+  let fixture: ComponentFixture<NewStickyDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DialogNewStickyDialogComponent ]
+      declarations: [NewStickyDialogComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DialogNewStickyDialogComponent);
+    fixture = TestBed.createComponent(NewStickyDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

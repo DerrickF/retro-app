@@ -6,12 +6,10 @@ import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/pairwise';
 import 'rxjs/add/operator/map';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { DialogNewStickyDialogComponent } from '../dialog-new-sticky-dialog/dialog-new-sticky-dialog.component';
-
-interface Sticky {
-  text: string;
-}
+import { Catagory } from '../../models/catagory';
+import { Sticky } from '../../models/sticky';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { NewCatagoryDialogComponent } from '../new-catagory-dialog/new-catagory-dialog.component';
 
 @Component({
   selector: 'app-board',
@@ -20,22 +18,26 @@ interface Sticky {
 })
 
 export class BoardComponent implements AfterViewInit {
-  // a reference to the canvas element from our template
-  @ViewChild('canvas') public canvas: ElementRef;
+  // stickyCollection: AngularFirestoreCollection<Sticky>;
+  // stickies: Observable<Sticky[]>;
 
-  // setting a width and height for the canvas
-  @Input() public width = 800;
-  @Input() public height = 800;
+  stickyCollection: Sticky[] = [
+    { id: 0, text: "Lorum ipsum sama lama ding dong day", likes: 10 },
+    { id: 1, text: "Lorum ipsum sama lama ding dong day", likes: 0 },
+    { id: 2, text: "Lorum ipsum sama lama ding dong day", likes: 1 },
+  ]
+  catagories: Catagory[] = [
+    { id: 0, title: "WWW", stickies: this.stickyCollection },
+    { id: 1, title: "!WWW", stickies: this.stickyCollection },
+    { id: 2, title: "Lessions Learned", stickies: this.stickyCollection },
+    { id: 3, title: "Try Next Time", stickies: this.stickyCollection },
+  ]
 
-  private cx: CanvasRenderingContext2D;
-  stickyCollection: AngularFirestoreCollection<Sticky>;
-  stickies: Observable<Sticky[]>;
-
-  newStickyDialogRef: MatDialogRef<DialogNewStickyDialogComponent>;
+  newCatagoryDialogRef: MatDialogRef<NewCatagoryDialogComponent>;
 
   ngOnInit() {
-    this.stickyCollection = this.afs.collection('stickies');
-    this.stickies = this.stickyCollection.valueChanges();
+    //this.stickyCollection = this.afs.collection('stickies');
+    //this.stickies = this.stickyCollection.valueChanges();
   }
 
   ngAfterViewInit(): void {
@@ -44,10 +46,16 @@ export class BoardComponent implements AfterViewInit {
 
   constructor(private afs: AngularFirestore, public dialog: MatDialog) { }
 
+
   openDialog() {
-    this.newStickyDialogRef = this.dialog.open(DialogNewStickyDialogComponent, {
+    this.newCatagoryDialogRef = this.dialog.open(NewCatagoryDialogComponent, {
       height: '400px',
       width: '600px'
     });
   }
+
+  changeTheme() {
+
+  }
+
 }

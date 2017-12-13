@@ -5,14 +5,19 @@ import { BoardComponent } from './components/board/board.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
-import { DialogNewStickyDialogComponent } from './components/dialog-new-sticky-dialog/dialog-new-sticky-dialog.component';
+import { NewStickyDialogComponent } from './components/new-sticky-dialog/new-sticky-dialog.component';
+
 import { MaterialModule } from './material.module';
+import { CatagoryComponent } from './components/catagory/catagory.component';
+import { NewCatagoryDialogComponent } from './components/new-catagory-dialog/new-catagory-dialog.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
-    DialogNewStickyDialogComponent,
+    CatagoryComponent,
+    NewStickyDialogComponent,
+    NewCatagoryDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +25,7 @@ import { MaterialModule } from './material.module';
     AngularFirestoreModule,
     MaterialModule
   ],
-  entryComponents: [DialogNewStickyDialogComponent],
+  entryComponents: [NewStickyDialogComponent, NewCatagoryDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

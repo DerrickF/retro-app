@@ -1,127 +1,24 @@
-<div class="container">
-
-  <!-- <ul *ngFor="let sticky of stickies | async">
+<div class="container" [ngClass]="{ 'dark-theme': darkEnabled }">
+  <mat-toolbar color="primary" fxLayout="row">
+    <div fxFlex="95">Retro-Time</div>
+    <button mat-raised-button color="warn" (click)="darkEnabled = !darkEnabled">Dark Theme</button>
+  </mat-toolbar>
+  <div class="container">
+    <!-- <ul *ngFor="let sticky of stickies | async">
     <li>{{sticky.text}}</li>
   </ul> -->
 
-  <div class="container">
-    <div fxLayout="column" style="background-color: green" fxLayoutAlign="space-around stretch">
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
-        <div fxFlex="50">
-          <mat-card>
-            <mat-card-header fxLayout="row">
-              <h2 fxFlex="90">WWW</h2>
-              <button mat-mini-fab (click)="openDialog()" color="primary">
-                <i class="material-icons">add</i>
-              </button>
-            </mat-card-header>
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>Something was not as hard as I though It would be</mat-card-title>
-              </mat-card-header>
-              <mat-card-actions>
-                <button mat-button>Delete</button>
-                <button mat-button>Thumbs Up</button>
-              </mat-card-actions>
-            </mat-card>
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>The sprint went super awesome</mat-card-title>
-              </mat-card-header>
-              <mat-card-actions>
-                <button mat-button>Delete</button>
-                <button mat-button>Thumbs Up</button>
-              </mat-card-actions>
-            </mat-card>
-          </mat-card>
-        </div>
-        <div fxFlex="50">
-          <mat-card>
-            <mat-card-header fxLayout="row">
-              <h2 fxFlex="90">WWW</h2>
-              <button mat-mini-fab (click)="openDialog()" color="primary">
-                <i class="material-icons">add</i>
-              </button>
-            </mat-card-header>
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>Something was not as hard as I though It would be</mat-card-title>
-              </mat-card-header>
-              <mat-card-actions>
-                <button mat-button>Delete</button>
-                <button mat-button>Thumbs Up</button>
-              </mat-card-actions>
-            </mat-card>
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>The sprint went super awesome</mat-card-title>
-              </mat-card-header>
-              <mat-card-actions>
-                <button mat-button>Delete</button>
-                <button mat-button>Thumbs Up</button>
-              </mat-card-actions>
-            </mat-card>
-          </mat-card>
+    <div class="container">
+      <div fxLayout="column" fxLayoutAlign="space-around stretch">
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between center">
+          <div fxFlex="50" *ngFor="let catagory of catagories">
+            <app-catagory [catagory]="catagory"></app-catagory>
+          </div>
         </div>
       </div>
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
-        <div fxFlex="50">
-          <mat-card>
-            <mat-card-header fxLayout="row">
-              <h2 fxFlex="90">WWW</h2>
-              <button mat-mini-fab (click)="openDialog()" color="primary">
-                <i class="material-icons">add</i>
-              </button>
-            </mat-card-header>
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>Something was not as hard as I though It would be</mat-card-title>
-              </mat-card-header>
-              <mat-card-actions>
-                <button mat-button>Delete</button>
-                <button mat-button>Thumbs Up</button>
-              </mat-card-actions>
-            </mat-card>
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>The sprint went super awesome</mat-card-title>
-              </mat-card-header>
-              <mat-card-actions>
-                <button mat-button>Delete</button>
-                <button mat-button>Thumbs Up</button>
-              </mat-card-actions>
-            </mat-card>
-          </mat-card>
-        </div>
-        <div fxFlex="50">
-          <mat-card>
-            <mat-card-header fxLayout="row">
-              <h2 fxFlex="90">WWW</h2>
-              <button mat-mini-fab (click)="openDialog()" color="primary">
-                <i class="material-icons">add</i>
-              </button>
-            </mat-card-header>
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>Something was not as hard as I though It would be</mat-card-title>
-              </mat-card-header>
-              <mat-card-actions>
-                <button mat-button>Delete</button>
-                <button mat-button>Thumbs Up</button>
-              </mat-card-actions>
-            </mat-card>
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>The sprint went super awesome</mat-card-title>
-              </mat-card-header>
-              <mat-card-actions>
-                <button mat-button>Delete</button>
-                <button mat-button>Thumbs Up</button>
-              </mat-card-actions>
-            </mat-card>
-          </mat-card>
-        </div>
-      </div>
+      <button (click)="openDialog()" class="fab" mat-fab color="primary">
+        <i class="material-icons">add</i>
+      </button>
     </div>
   </div>
 </div>

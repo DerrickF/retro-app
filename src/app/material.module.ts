@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import {
     MatButtonModule,
     MatDialogModule,
@@ -20,13 +18,9 @@ import { Browser } from 'selenium-webdriver';
 
 @NgModule({
     imports: [
-        BrowserAnimationsModule,
-        FlexLayoutModule
     ],
     declarations: [],
     exports: [
-        BrowserAnimationsModule,
-        FlexLayoutModule,
         MatButtonModule,
         MatToolbarModule,
         MatDialogModule,

@@ -6,10 +6,13 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { NewStickyDialogComponent } from './components/new-sticky-dialog/new-sticky-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from './material.module';
 import { CatagoryComponent } from './components/catagory/catagory.component';
 import { NewCatagoryDialogComponent } from './components/new-catagory-dialog/new-catagory-dialog.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,13 @@ import { NewCatagoryDialogComponent } from './components/new-catagory-dialog/new
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   entryComponents: [NewStickyDialogComponent, NewCatagoryDialogComponent],
   providers: [],

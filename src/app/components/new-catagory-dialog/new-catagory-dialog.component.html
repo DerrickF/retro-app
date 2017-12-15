@@ -1,9 +1,9 @@
 <div class="container">
   <form fxLayout="column" fxLayoutAlign="center none">
     <mat-form-field>
-      <input type="text" matInput placeholder="Catagory Title">
+      <input type="text" matInput [(ngModel)]="catagory.title" name="title" placeholder="Catagory Title">
     </mat-form-field>
-    <button mat-raised-button (click)="openDialog()" color="primary">
+    <button mat-raised-button (click)="save()" color="primary">
       Save
       <i class="material-icons">save</i>
     </button>

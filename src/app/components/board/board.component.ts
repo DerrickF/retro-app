@@ -27,10 +27,10 @@ export class BoardComponent implements AfterViewInit {
     { id: 2, text: "Lorum ipsum sama lama ding dong day", likes: 1 },
   ]
   catagories: Catagory[] = [
-    { id: 0, title: "WWW", stickies: this.stickyCollection },
-    { id: 1, title: "!WWW", stickies: this.stickyCollection },
-    { id: 2, title: "Lessions Learned", stickies: this.stickyCollection },
-    { id: 3, title: "Try Next Time", stickies: this.stickyCollection },
+    { id: 0, title: "WWW", stickies: [...this.stickyCollection] },
+    { id: 1, title: "!WWW", stickies: [...this.stickyCollection] },
+    { id: 2, title: "Lessions Learned", stickies: [...this.stickyCollection] },
+    { id: 3, title: "Try Next Time", stickies: [...this.stickyCollection] },
   ]
 
   newCatagoryDialogRef: MatDialogRef<NewCatagoryDialogComponent>;
@@ -46,16 +46,17 @@ export class BoardComponent implements AfterViewInit {
 
   constructor(private afs: AngularFirestore, public dialog: MatDialog) { }
 
-
   openDialog() {
     this.newCatagoryDialogRef = this.dialog.open(NewCatagoryDialogComponent, {
       height: '400px',
       width: '600px'
     });
+
+    this.newCatagoryDialogRef.afterClosed().subscribe((result: Catagory) => {
+      if (result) {
+        this.catagories.push(result);
+      }
+    })
+
   }
-
-  changeTheme() {
-
-  }
-
 }

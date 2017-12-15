@@ -1,9 +1,9 @@
 <div class="container">
     <form fxLayout="column" fxLayoutAlign="center none">
         <mat-form-field>
-            <textarea matInput placeholder="Share your thoughts"></textarea>
+            <textarea [(ngModel)]="sticky.text" name="text" matInput placeholder="Share your thoughts"></textarea>
         </mat-form-field>
-        <button mat-raised-button (click)="openDialog()" color="primary">
+        <button mat-raised-button (click)="save()" color="primary">
             Save
             <i class="material-icons">save</i>
         </button>

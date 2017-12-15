@@ -1,7 +1,9 @@
 <div class="container" [ngClass]="{ 'dark-theme': darkEnabled }">
   <mat-toolbar color="primary" fxLayout="row">
-    <div fxFlex="95">Retro-Time</div>
-    <button mat-raised-button color="warn" (click)="darkEnabled = !darkEnabled">Dark Theme</button>
+    <div fxFlex="90" fxFlex.lt-md="">Retro-Time</div>
+    <button mat-raised-button color="warn" (click)="darkEnabled = !darkEnabled">
+      {{darkEnabled ? 'Light Theme': 'Dark Theme'}}
+    </button>
   </mat-toolbar>
   <div class="container">
     <!-- <ul *ngFor="let sticky of stickies | async">
@@ -10,8 +12,8 @@
 
     <div class="container">
       <div fxLayout="column" fxLayoutAlign="space-around stretch">
-        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between center">
-          <div fxFlex="50" *ngFor="let catagory of catagories">
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutAlign.xs="space-between stretch">
+          <div fxFlex="50" fxFlex.xs="100" *ngFor="let catagory of catagories">
             <app-catagory [catagory]="catagory"></app-catagory>
           </div>
         </div>

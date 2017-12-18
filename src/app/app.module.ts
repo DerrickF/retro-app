@@ -13,6 +13,9 @@ import { MaterialModule } from './material.module';
 import { CatagoryComponent } from './components/catagory/catagory.component';
 import { NewCatagoryDialogComponent } from './components/new-catagory-dialog/new-catagory-dialog.component'
 import { FormsModule } from '@angular/forms';
+import { FirebaseService } from './components/shared/firebase.service';
+import { EffectsModule } from '@ngrx/effects';
+import { CatagoryEffects } from './effects/category-effect';
 
 @NgModule({
   declarations: [
@@ -28,12 +31,13 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    EffectsModule.forRoot([CatagoryEffects]),
     AngularFirestoreModule,
     MaterialModule,
     FormsModule
   ],
   entryComponents: [NewStickyDialogComponent, NewCatagoryDialogComponent],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

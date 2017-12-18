@@ -10,7 +10,8 @@ import {
     MatListModule,
     MatCardModule,
     MatInputModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule
 } from '@angular/material'
 
 import { FormsModule } from '@angular/forms';
@@ -30,6 +31,7 @@ import { Browser } from 'selenium-webdriver';
         MatGridListModule,
         MatListModule,
         MatCardModule,
+        MatExpansionModule,
         MatInputModule,
     ],
 })

@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { FirebaseService } from './components/shared/firebase.service';
 import { EffectsModule } from '@ngrx/effects';
 import { CatagoryEffects } from './effects/category-effect';
+import { StoreModule } from '@ngrx/store/src/store_module';
+import { catagoryReducer } from './reducers/catagory-reducer';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { CatagoryEffects } from './effects/category-effect';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     EffectsModule.forRoot([CatagoryEffects]),
+    StoreModule.forRoot({ catagory: catagoryReducer }),
     AngularFirestoreModule,
     MaterialModule,
     FormsModule

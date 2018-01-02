@@ -34,7 +34,7 @@ import { catagoryReducer } from './reducers/catagory-reducer';
     BrowserAnimationsModule,
     //AngularFireModule.initializeApp(environment.firebase),
     EffectsModule.forRoot([CatagoryEffects]),
-    StoreModule.forRoot({ catagory: catagoryReducer }),
+    StoreModule.forRoot({ catagoryState: catagoryReducer }),
     //AngularFirestoreModule,
     MaterialModule,
     FormsModule

@@ -11,7 +11,7 @@ import { Sticky } from '../../models/sticky';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { NewCatagoryDialogComponent } from '../new-catagory-dialog/new-catagory-dialog.component';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../app-state';
+import { State } from '../../app-state';
 import * as catagoryActions from '../../actions/catagory-action'
 
 @Component({
@@ -20,30 +20,24 @@ import * as catagoryActions from '../../actions/catagory-action'
   styleUrls: ['./board.component.css']
 })
 
-export class BoardComponent implements AfterViewInit {
+export class BoardComponent {
   // stickyCollection: AngularFirestoreCollection<Sticky>;
   // stickies: Observable<Sticky[]>;
 
   catagories$: Observable<Catagory[]>
-  
-
   newCatagoryDialogRef: MatDialogRef<NewCatagoryDialogComponent>;
+
+  // constructor(private afs: AngularFirestore, public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private store: Store<any>) {
+    this.catagories$ = store.select('catagoryState').select('catagories');
+  }
 
   ngOnInit() {
     //this.stickyCollection = this.afs.collection('stickies');
     //this.stickies = this.stickyCollection.valueChanges();
-    this.catagories$ = this.store.select('catagories');
-  }
 
-  ngAfterViewInit(): void {
 
   }
-
-  // constructor(private afs: AngularFirestore, public dialog: MatDialog) { }
-  constructor(public dialog: MatDialog, private store: Store<AppState>) {
-    
-   }
-
   openDialog() {
     this.newCatagoryDialogRef = this.dialog.open(NewCatagoryDialogComponent, {
       height: '400px',

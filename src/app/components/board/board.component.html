@@ -6,23 +6,15 @@
     </button>
   </mat-toolbar>
   <div class="container">
-    <!-- <ul *ngFor="let sticky of stickies | async">
-    <li>{{sticky.text}}</li>
-  </ul> -->
-  <pre>catagory: {{catagory$|async}}</pre>
-
-    <div class="container">
-      <div fxLayout="column" fxLayoutAlign="space-around stretch">
-        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutAlign.xs="space-between stretch">
-          <div fxFlex="50" fxFlex.xs="100" *ngFor="let catagory of catagories$ | async">
-            <pre>catagory: {{catagory}}</pre>
-            <app-catagory [catagory]="catagory"></app-catagory>
-          </div>
+    <div fxLayout="column" fxLayoutAlign="space-around stretch">
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutAlign.xs="space-between stretch">
+        <div fxFlex="50" fxFlex.xs="100" *ngFor="let catagory of catagories$ | async">
+          <app-catagory [catagory]="catagory"></app-catagory>
         </div>
       </div>
-      <button (click)="openDialog()" class="fab" mat-fab color="primary">
-        <i class="material-icons">add</i>
-      </button>
     </div>
+    <button (click)="openDialog()" class="fab" mat-fab color="primary">
+      <i class="material-icons">add</i>
+    </button>
   </div>
 </div>

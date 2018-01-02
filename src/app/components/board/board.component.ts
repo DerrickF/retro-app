@@ -5,11 +5,14 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/pairwise';
 import 'rxjs/add/operator/map';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+//import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Catagory } from '../../models/catagory';
 import { Sticky } from '../../models/sticky';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { NewCatagoryDialogComponent } from '../new-catagory-dialog/new-catagory-dialog.component';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../app-state';
+import * as catagoryActions from '../../actions/catagory-action'
 
 @Component({
   selector: 'app-board',
@@ -21,30 +24,25 @@ export class BoardComponent implements AfterViewInit {
   // stickyCollection: AngularFirestoreCollection<Sticky>;
   // stickies: Observable<Sticky[]>;
 
-  stickyCollection: Sticky[] = [
-    { id: 0, text: "Lorum ipsum sama lama ding dong day", likes: 10 },
-    { id: 1, text: "Lorum ipsum sama lama ding dong day", likes: 0 },
-    { id: 2, text: "Lorum ipsum sama lama ding dong day", likes: 1 },
-  ]
-  catagories: Catagory[] = [
-    { id: 0, title: "WWW", stickies: [...this.stickyCollection] },
-    { id: 1, title: "!WWW", stickies: [...this.stickyCollection] },
-    { id: 2, title: "Lessions Learned", stickies: [...this.stickyCollection] },
-    { id: 3, title: "Try Next Time", stickies: [...this.stickyCollection] },
-  ]
+  catagories$: Observable<Catagory[]>
+  
 
   newCatagoryDialogRef: MatDialogRef<NewCatagoryDialogComponent>;
 
   ngOnInit() {
     //this.stickyCollection = this.afs.collection('stickies');
     //this.stickies = this.stickyCollection.valueChanges();
+    this.catagories$ = this.store.select('catagories');
   }
 
   ngAfterViewInit(): void {
 
   }
 
-  constructor(private afs: AngularFirestore, public dialog: MatDialog) { }
+  // constructor(private afs: AngularFirestore, public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private store: Store<AppState>) {
+    
+   }
 
   openDialog() {
     this.newCatagoryDialogRef = this.dialog.open(NewCatagoryDialogComponent, {
@@ -54,7 +52,7 @@ export class BoardComponent implements AfterViewInit {
 
     this.newCatagoryDialogRef.afterClosed().subscribe((result: Catagory) => {
       if (result) {
-        this.catagories.push(result);
+        this.store.dispatch(new catagoryActions.AddCatagory(result));
       }
     })
 

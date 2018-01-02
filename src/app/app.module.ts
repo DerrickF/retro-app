@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BoardComponent } from './components/board/board.component';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
+//import { AngularFireModule } from 'angularfire2';
+//import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { NewStickyDialogComponent } from './components/new-sticky-dialog/new-sticky-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { FirebaseService } from './components/shared/firebase.service';
 import { EffectsModule } from '@ngrx/effects';
 import { CatagoryEffects } from './effects/category-effect';
-import { StoreModule } from '@ngrx/store/src/store_module';
+import { StoreModule } from '@ngrx/store';
 import { catagoryReducer } from './reducers/catagory-reducer';
 
 @NgModule({
@@ -32,10 +32,10 @@ import { catagoryReducer } from './reducers/catagory-reducer';
     FlexLayoutModule,
     BrowserAnimationsModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    //AngularFireModule.initializeApp(environment.firebase),
     EffectsModule.forRoot([CatagoryEffects]),
     StoreModule.forRoot({ catagory: catagoryReducer }),
-    AngularFirestoreModule,
+    //AngularFirestoreModule,
     MaterialModule,
     FormsModule
   ],
